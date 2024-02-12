@@ -2,8 +2,8 @@ import json
 import sys
 import os
 
-from modules import cmd_args
-from modules import paths
+from mods import cmd_args
+from mods import paths
 
 # global token usage
 token_usage = {

@@ -3,11 +3,11 @@ import json
 import sys
 import os
 
-from modules.helpers import yesno, ask_input
-from modules import checklist
-from modules import cmd_args
-from modules import tokens
-from modules import paths
+from mods.helpers import yesno, ask_input
+from mods import checklist
+from mods import cmd_args
+from mods import tokens
+from mods import paths
 
 def detect_slug(prompt, model, temp):
     slugs = {}

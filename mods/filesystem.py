@@ -3,8 +3,8 @@ import shutil
 import copy
 import os
 
-from modules.helpers import relpath
-from modules import cmd_args
+from mods.helpers import relpath
+from mods import cmd_args
 
 virtual = {}
 

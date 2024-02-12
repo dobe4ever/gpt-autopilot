@@ -1,7 +1,7 @@
 import sys
 import os
 
-from modules import config
+from mods import config
 
 args = {
     "program_name": sys.argv.pop(0)

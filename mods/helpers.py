@@ -4,8 +4,8 @@ import sys
 import os
 import re
 
-from modules import cmd_args
-from modules import paths
+from mods import cmd_args
+from mods import paths
 
 autonomous_message_count = 0
 

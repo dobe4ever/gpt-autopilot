@@ -5,11 +5,11 @@ import copy
 import time
 import re
 
-from modules.helpers import codedir, reset_code_folder
-from modules.platform import join_cmd
-from modules import cmd_args
-from modules import chatgpt
-from modules import tokens
+from mods.helpers import codedir, reset_code_folder
+from mods.platform import join_cmd
+from mods import cmd_args
+from mods import chatgpt
+from mods import tokens
 
 commit_count = 1
 git_log = [

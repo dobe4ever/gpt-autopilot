@@ -3,16 +3,16 @@ import copy
 import time
 import json
 import sys
-import os
+import os.path
 
-from modules.helpers import yesno, ask_input
-from modules.token_saver import save_tokens
-from modules import gpt_functions
-from modules import checklist
-from modules import cmd_args
-from modules import helpers
-from modules import tokens
-from modules import paths
+from mods.helpers import yesno, ask_input
+from mods.token_saver import save_tokens
+from mods import gpt_functions
+from mods import checklist
+from mods import cmd_args
+from mods import helpers
+from mods import tokens
+from mods import paths
 
 create_outline = False
 

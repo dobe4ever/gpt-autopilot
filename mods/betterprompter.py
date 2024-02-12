@@ -1,7 +1,7 @@
 import openai
 import json
 
-from modules import tokens
+from mods import tokens
 
 def make_better(prompt, model, temp = 1.0, messages = []):
     if len(prompt.split(" ")) < 80:

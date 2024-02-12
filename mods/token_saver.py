@@ -1,6 +1,6 @@
 import copy
 
-from modules import cmd_args
+from mods import cmd_args
 
 if "token-saver-level" in cmd_args.args:
     token_saver_level = int(cmd_args.args["token-saver-level"])

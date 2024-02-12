@@ -1,7 +1,7 @@
 import json
 import os
 
-from modules import paths
+from mods import paths
 
 def get_config():
     try:

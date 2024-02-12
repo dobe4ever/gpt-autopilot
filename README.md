@@ -21,7 +21,7 @@ $ ./gpt-autopilot.py
 You can enable Git with `--git` and it will commit every change to git automatically and you can revert back or retry any step.
 
 ```
-$ ./gpt-autopilot.py --git
+<!-- python3 gpt-autopilot.py --git -->
 ```
 
 # Installation

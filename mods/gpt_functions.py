@@ -5,10 +5,10 @@ import time
 import sys
 import os
 
-from modules.helpers import yesno, safepath, codedir, relpath, ask_input
-from modules import filesystem
-from modules import cmd_args
-from modules import paths
+from mods.helpers import yesno, safepath, codedir, relpath, ask_input
+from mods import filesystem
+from mods import cmd_args
+from mods import paths
 
 tasklist = []
 active_tasklist = []
@@ -302,7 +302,7 @@ def should_ignore(path, ignore):
     always_ignore = [
         ".git",
         "__pycache__",
-        "node_modules",
+        "node_mods",
         "vendor",
         ".angular",
     ]
@@ -320,7 +320,7 @@ def list_files(list = "", print_output = True, ignore = [
     ".gpt-autopilot",
     ".git",
     "__pycache__",
-    "node_modules",
+    "node_mods",
     "vendor",
     ".angular",
 ]):

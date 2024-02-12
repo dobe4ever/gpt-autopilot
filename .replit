@@ -12,3 +12,5 @@ language = "python3"
 [deployment]
 run = ["python3", "gpt-autopilot.py"]
 deploymentTarget = "cloudrun"
+
+

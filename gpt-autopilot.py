@@ -1,28 +1,25 @@
-#!/usr/bin/env python3
+### python3 gpt-autopilot.py
 
-import traceback
 import openai
-import shutil
 import random
 import json
 import copy
-import time
 import sys
 import os
 import re
 
-from modules.helpers import yesno, safepath, codedir, numberfile, reset_code_folder, relpath, ask_input
-from modules.config import get_config, save_config
-from modules import prompt_selector
-from modules import gpt_functions
-from modules import betterprompter
-from modules import filesystem
-from modules import checklist
-from modules import cmd_args
-from modules import chatgpt
-from modules import tokens
-from modules import paths
-from modules import git
+from mods.helpers import yesno, safepath, codedir, numberfile, reset_code_folder, relpath, ask_input
+from mods.config import get_config, save_config
+from mods import prompt_selector
+from mods import gpt_functions
+from mods import betterprompter
+from mods import filesystem
+from mods import checklist
+from mods import cmd_args
+from mods import chatgpt
+from mods import tokens
+from mods import paths
+from mods import git
 
 CONFIG = get_config()
 
@@ -164,20 +161,20 @@ def print_task_finished(model):
     task__price = (str(task__price)+" USD").rjust(13, " ")
 
     print()
-    print(f"###############################")
-    print(f"# Task is finished!           #")
+    print("###############################")
+    print("# Task is finished!           #")
     print(f"# Task tokens:  {task_tokens} #")
     print(f"# Task price:   {task__price} #")
     print(f"# Total tokens: {totaltokens} #")
     print(f"# Total price:  {total_price} #")
-    print(f"###############################")
+    print("###############################")
     print()
 
     tokens.prev_tokens_total = tokens_total
     tokens.prev_price_total = price_total
 
 def ask_model_switch():
-    if yesno("\nERROR: You don't seem to have access to the GPT-4 API. Would you like to change to GPT-3.5?") == "y":
+    if helpers.yesno("\nERROR: You don't seem to have access to the GPT-4 API. Would you like to change to GPT-3.5?") == "y":
         CONFIG["model"] = "gpt-3.5-turbo-16k-0613"
         save_config(CONFIG)
         return CONFIG["model"]
@@ -433,7 +430,7 @@ def run_conversation(prompt, model = "gpt-3.5-turbo-16k-0613", messages = [], co
 
             # if function returns PROJECT_FINISHED, exit
             elif function_response == "PROJECT_FINISHED":
-                if recursive == False:
+                if recursive is False:
                     checklist.activate_checklist()
                     print_task_finished(model)
                     return messages
@@ -495,7 +492,7 @@ def run_conversation(prompt, model = "gpt-3.5-turbo-16k-0613", messages = [], co
                         while "git" in cmd_args.args and prompt == "commit":
                             prompt = git.own_commit()
 
-                            if prompt == False:
+                            if prompt is False:
                                 print("ERROR: No changes have been made.\n")
                                 git.print_help()
                                 prompt = ask_input("GPT: What would you like to do next?\nYou: ")
@@ -655,7 +652,7 @@ def make_prompt_better(prompt, orig_prompt=None, ask=True, temp = 1.0, messages 
         print("## Better prompt: ##\n" + better_prompt)
         print()
 
-        if ask == False or yesno("GPT: Do you want to use this prompt?\nYou") == "y":
+        if ask is False or yesno("GPT: Do you want to use this prompt?\nYou") == "y":
             print("\nUsing better prompt...")
             prompt = better_prompt
         else:
@@ -744,7 +741,7 @@ def get_temp(arguments):
     return 1.0
 
 def maybe_make_prompt_better(prompt, args, version_loop = False):
-    if version_loop == True and "better-versions" not in args:
+    if version_loop is True and "better-versions" not in args:
         return prompt
     if "not-better" not in args:
         if "better" in args or yesno("\nGPT: Do you want me to make your prompt better?\nYou") == "y":
